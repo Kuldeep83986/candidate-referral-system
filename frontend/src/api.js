@@ -1,13 +1,13 @@
-const BASE_URL = "https://candidate-referral-system.onrender.com/candidates";
+const BASE_URL = "https://candidate-referral-system.onrender.com";
 
 export async function getCandidates() {
-  const res = await fetch(`${BASE_URL}/get-candidates`);
+  const res = await fetch(`${BASE_URL}/candidates/get-candidates`);
   if (!res.ok) throw new Error("Failed to fetch candidates");
   return res.json();
 }
 
 export async function createCandidate(data) {
-  const res = await fetch(`${BASE_URL}/create-candidate`, {
+  const res = await fetch(`${BASE_URL}/candidates/create-candidate`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(data),
@@ -17,7 +17,7 @@ export async function createCandidate(data) {
 }
 
 export async function updateStatus(id, status) {
-  const res = await fetch(`${BASE_URL}/${id}/status`, {
+  const res = await fetch(`${BASE_URL}/candidates/${id}/status`, {
     method: "PUT",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ status }),
@@ -27,7 +27,7 @@ export async function updateStatus(id, status) {
 }
 
 export async function deleteCandidate(id) {
-  const res = await fetch(`${BASE_URL}/${id}`, { method: "DELETE" });
+  const res = await fetch(`${BASE_URL}/candidates/${id}`, { method: "DELETE" });
   if (!res.ok) throw new Error("Failed to delete candidate");
   return res.json();
 }
