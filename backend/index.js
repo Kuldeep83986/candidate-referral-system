@@ -5,7 +5,9 @@ const DbConnect = require("./db");
 require("dotenv").config();
 
 const app = express();
-app.use(cors());
+app.use(cors({
+  origin: ["https://candidate-referral-system-ten.vercel.app"]
+}));
 app.use(express.json());
 
 DbConnect();
