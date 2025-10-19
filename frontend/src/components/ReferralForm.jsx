@@ -17,13 +17,13 @@ export default function ReferralForm() {
   const handleChange = (e) =>
     setForm({ ...form, [e.target.name]: e.target.value });
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!form.name || !form.email || !form.phone || !form.jobTitle) {
       setMsg("All fields are required!");
       return;
     }
-    addCandidate(form);
+    await addCandidate(form);
     setMsg("Candidate added!");
     setForm({ name: "", email: "", phone: "", jobTitle: "" });
     navigate("/dashboard");

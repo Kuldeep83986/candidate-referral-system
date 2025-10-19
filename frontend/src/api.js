@@ -1,4 +1,4 @@
-const BASE_URL = "http://localhost:8080/candidates";
+const BASE_URL = "https://candidate-referral-system.onrender.com/candidates";
 
 export async function getCandidates() {
   const res = await fetch(`${BASE_URL}/get-candidates`);
